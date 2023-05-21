@@ -1,0 +1,17 @@
+/**
+ * Feature dependencies
+ */
+apply plugin: 'com.android.library'
+apply from: '../../android_base.gradle'
+
+dependencies {
+    // Android
+    implementation Libraries.material
+    implementation Libraries.androidxCore
+    implementation Libraries.androidxAppCompat
+    implementation Libraries.androidxConstraintLayout
+    implementation Libraries.androidxRecyclerview
+    implementation Libraries.androidxFragment
+    implementation Libraries.androidxLifecycleViewModel
+    implementation Libraries.androidxLifecycleRuntime
+}
