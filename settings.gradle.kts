@@ -13,18 +13,8 @@ dependencyResolutionManagement {
     }
 }
 rootProject.name = "CleanArch"
-includeModulesDir(settingsDir.path)
 
-fun includeModulesDir(vararg dirs: String) {
-    val foundModules = dirs
-            .map(::File)
-            .flatMap(::findGradleModules)
-            .map { it.path.replace(File.separatorChar, ':') }
-            .sorted()
-
-    println("foundModules: $foundModules")
-    include(*foundModules.toTypedArray())
-}
+includeModulesDir()
 
 fun findGradleModules(file: File): List<File> {
     val mutableList = mutableListOf<File>()
@@ -34,4 +24,13 @@ fun findGradleModules(file: File): List<File> {
         }
     }
     return mutableList
+}
+
+fun includeModulesDir() {
+    val foundModules = findGradleModules(rootDir)
+        .map { it.path.replace(File.separatorChar, ':') }
+        .sorted()
+
+    println("foundModules: $foundModules")
+    include(foundModules)
 }
