@@ -4,7 +4,6 @@ apply plugin: 'org.jetbrains.kotlin.android'
 android {
     compileSdkVersion AndroidConfig.compileSdk
     defaultConfig {
-        applicationId AndroidConfig.applicationId
         minSdkVersion AndroidConfig.minSdk
         targetSdkVersion AndroidConfig.targetSdk
         versionCode Releases.versionCode

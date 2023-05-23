@@ -2,10 +2,13 @@ plugins {
     id 'com.android.application'
     id 'kotlin-kapt'
 }
-apply from: '../android_base.gradle'
+apply from: "$rootDir/android_base.gradle"
 
 android {
     namespace AndroidConfig.applicationId
+    defaultConfig {
+        applicationId AndroidConfig.applicationId
+    }
 }
 
 dependencies {
