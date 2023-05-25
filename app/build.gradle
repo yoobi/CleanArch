@@ -1,6 +1,8 @@
 plugins {
     id 'com.android.application'
     id 'kotlin-kapt'
+    id 'com.google.dagger.hilt.android'
+    id 'androidx.navigation.safeargs'
 }
 apply from: "$rootDir/android_base.gradle"
 
@@ -12,6 +14,19 @@ android {
 }
 
 dependencies {
+    implementation projects.features.featureDashboard.ui
+    implementation projects.features.featureDashboard.data
+
+    implementation Libraries.hiltAndroid
+    kapt Libraries.hiltCompiler
+
+    implementation Libraries.androidxNavigation
+    implementation Libraries.androidxNavigationFragment
+
+    implementation Libraries.retrofit
+    implementation Libraries.retrofitMoshi
+    implementation Libraries.retrofitAdapter
+
     implementation Libraries.androidxCore
     implementation Libraries.androidxAppCompat
     implementation Libraries.material

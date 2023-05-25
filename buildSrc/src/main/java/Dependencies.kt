@@ -34,10 +34,6 @@ object Versions {
     const val androidxLifecycleKtx = "2.6.1"
 }
 
-object Modules {
-    const val app = ":app"
-}
-
 object Libraries {
 
     const val androidxConstraintLayout =
@@ -56,7 +52,7 @@ object Libraries {
     const val hiltAndroid = "com.google.dagger:hilt-android:${Versions.hilt}"
     const val hiltCompiler = "com.google.dagger:hilt-compiler:${Versions.hilt}"
 
-    const val glideAndroid = "com.github.bumptech.glide:glide:4.11.0"
+    const val glideAndroid = "com.github.bumptech.glide:glide:4.15.1"
 
     const val retrofit = "com.squareup.retrofit2:retrofit:${Versions.retrofit}"
     const val retrofitMoshi = "com.squareup.retrofit2:converter-moshi:${Versions.retrofit}"

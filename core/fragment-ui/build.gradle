@@ -1,0 +1,13 @@
+plugins {
+    id 'com.android.library'
+}
+
+apply from: "$rootDir/android_base.gradle"
+
+android {
+    namespace 'io.yoobi.poc.cleanarch.core.fragment.ui'
+}
+
+dependencies {
+    implementation Libraries.androidxAppCompat
+}

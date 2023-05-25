@@ -1,0 +1,13 @@
+apply from: "$rootDir/android_feature_dependencies.gradle"
+
+android {
+    namespace "${AndroidConfig.applicationId}.features.dashboard.ui"
+}
+
+dependencies {
+    implementation projects.features.featureDashboard.domain
+    implementation projects.core.fragmentUi
+    implementation projects.core.network
+
+    implementation Libraries.glideAndroid
+}

@@ -1,0 +1,22 @@
+apply plugin: 'com.android.library'
+apply plugin: 'com.google.dagger.hilt.android'
+apply plugin: 'kotlin-kapt'
+apply from: "$rootDir/android_base.gradle"
+
+android {
+    namespace "${AndroidConfig.applicationId}.features.dashboard.data"
+}
+
+dependencies {
+    implementation projects.features.featureDashboard.domain
+
+    implementation Libraries.hiltAndroid
+    kapt Libraries.hiltCompiler
+
+    implementation Libraries.retrofit
+
+    implementation Libraries.moshi
+    implementation Libraries.moshiKotlin
+    implementation Libraries.moshiKapt
+    kapt Libraries.moshiKapt
+}

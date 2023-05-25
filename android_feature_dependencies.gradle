@@ -2,6 +2,8 @@
  * Feature dependencies
  */
 apply plugin: 'com.android.library'
+apply plugin: 'com.google.dagger.hilt.android'
+apply plugin: 'kotlin-kapt'
 apply from: "$rootDir/android_base.gradle"
 
 dependencies {
@@ -14,4 +16,8 @@ dependencies {
     implementation Libraries.androidxFragment
     implementation Libraries.androidxLifecycleViewModel
     implementation Libraries.androidxLifecycleRuntime
+
+    // DI
+    implementation Libraries.hiltAndroid
+    kapt Libraries.hiltCompiler
 }
