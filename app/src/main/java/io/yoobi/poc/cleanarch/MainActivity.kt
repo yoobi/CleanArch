@@ -30,7 +30,7 @@ class MainActivity : AppCompatActivity() {
         // Passing each menu ID as a set of Ids because each
         // menu should be considered as top level destinations.
         val appBarConfiguration = AppBarConfiguration(setOf(
-            R.id.homeFragment,
+            R.id.dashboardFragment,
         ))
         val toolbar = findViewById<MaterialToolbar>(R.id.text_toolbar)
         NavigationUI.setupWithNavController(toolbar, navController, appBarConfiguration)
