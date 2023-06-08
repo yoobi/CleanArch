@@ -50,7 +50,7 @@ private fun generateFeatureFiles(type: FeatureType, layer: FeatureLayer, moduleN
             "{{featureLayer}}" to layer.name.lowercase()
         )
     )
-    File(moduleRootFile, "README.md").createFileAndLog()
+//    File(moduleRootFile, "README.md").createFileAndLog()
     if(layer == FeatureLayer.UI) {
         File(moduleSrcFile, "${moduleName}Fragment.kt").createFileAndLog()
     }
