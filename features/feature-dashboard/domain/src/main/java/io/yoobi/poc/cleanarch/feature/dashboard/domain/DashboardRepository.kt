@@ -3,8 +3,7 @@ package io.yoobi.poc.cleanarch.feature.dashboard.domain
 import io.yoobi.poc.cleanarch.feature.dashboard.domain.model.Repository
 import io.yoobi.poc.cleanarch.feature.dashboard.domain.model.User
 
-
-interface HomeRepository {
+interface DashboardRepository {
 
     suspend fun getNewUserCreatedAt(date: String): List<User>
 

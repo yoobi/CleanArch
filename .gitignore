@@ -8,11 +8,13 @@
 /.idea/navEditor.xml
 /.idea/assetWizardSettings.xml
 .DS_Store
-/build/*
-!/build/reports
-!/build/reports/dependency-graph
 /captures
 .externalNativeBuild
 .cxx
 local.properties
 /.idea/
+
+/build/*
+!/build/reports
+!/build/reports/dependency-graph
+/build/reports/configuration-cache/

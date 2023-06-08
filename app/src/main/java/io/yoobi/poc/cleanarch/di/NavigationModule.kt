@@ -29,7 +29,6 @@ object NavControllerModule {
 interface NavigationFragModule {
 
     @Binds
-    fun bindsDashboardNavigation(homeNavigationImpl: DashboardNavigationImpl): DashboardNavigation
-
+    fun bindsDashboardNavigation(dashboardNavigationImpl: DashboardNavigationImpl): DashboardNavigation
 
 }

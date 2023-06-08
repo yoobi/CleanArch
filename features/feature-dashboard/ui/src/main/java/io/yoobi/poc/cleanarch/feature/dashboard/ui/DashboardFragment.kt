@@ -15,7 +15,7 @@ import javax.inject.Inject
 
 @AndroidEntryPoint
 class DashboardFragment: BaseFragment<FragmentDashboardBinding>(FragmentDashboardBinding::inflate) {
-    private val viewModel: HomeViewModel by viewModels()
+    private val viewModel: DashboardViewModel by viewModels()
     @Inject lateinit var navigation: DashboardNavigation
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {

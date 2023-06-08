@@ -1,7 +1,7 @@
 package io.yoobi.poc.cleanarch.feature.dashboard.data
 
 import io.yoobi.poc.cleanarch.feature.dashboard.data.model.toDomain
-import io.yoobi.poc.cleanarch.feature.dashboard.domain.HomeRepository
+import io.yoobi.poc.cleanarch.feature.dashboard.domain.DashboardRepository
 import io.yoobi.poc.cleanarch.feature.dashboard.domain.model.Repository
 import io.yoobi.poc.cleanarch.feature.dashboard.domain.model.User
 import retrofit2.Retrofit
@@ -9,9 +9,9 @@ import javax.inject.Inject
 import javax.inject.Singleton
 
 @Singleton
-class HomeRepositoryImpl @Inject constructor(
+class DashboardRepositoryImpl @Inject constructor(
     retrofit: Retrofit
-): HomeRepository {
+): DashboardRepository {
 
     private val networkApi = retrofit.create(GithubSearchService::class.java)
 

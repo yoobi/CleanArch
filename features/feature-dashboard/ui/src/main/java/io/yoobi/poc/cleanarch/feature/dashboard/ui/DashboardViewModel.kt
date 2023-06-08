@@ -4,7 +4,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import dagger.hilt.android.lifecycle.HiltViewModel
 import io.yoobi.poc.cleanarch.core.network.Resource
-import io.yoobi.poc.cleanarch.feature.dashboard.domain.HomeRepository
+import io.yoobi.poc.cleanarch.feature.dashboard.domain.DashboardRepository
 import io.yoobi.poc.cleanarch.feature.dashboard.domain.model.Repository
 import io.yoobi.poc.cleanarch.feature.dashboard.domain.model.User
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -14,8 +14,8 @@ import java.util.Calendar
 import javax.inject.Inject
 
 @HiltViewModel
-class HomeViewModel @Inject constructor(
-    private val homeRepository: HomeRepository
+class DashboardViewModel @Inject constructor(
+    private val dashboardRepository: DashboardRepository
 ): ViewModel() {
 
     private val _newestUser = MutableStateFlow<Resource<List<User>>>(Resource.loading(null))
@@ -28,7 +28,7 @@ class HomeViewModel @Inject constructor(
         viewModelScope.launch {
             runCatching {
                 val calendar = Calendar.getInstance()
-                homeRepository.getNewUserCreatedAt(calendar.toStringDate())
+                dashboardRepository.getNewUserCreatedAt(calendar.toStringDate())
             }.fold(
                 onSuccess = {
                     _newestUser.value = Resource.success(it)
@@ -40,7 +40,7 @@ class HomeViewModel @Inject constructor(
         }
         viewModelScope.launch {
             runCatching {
-                homeRepository.getTopAndroidRepository()
+                dashboardRepository.getTopAndroidRepository()
             }.fold(
                 onSuccess = {
                     _topRepository.value = Resource.success(it)
