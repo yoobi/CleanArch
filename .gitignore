@@ -14,6 +14,7 @@
 local.properties
 /.idea/
 
+**/build/
 /build/*
 !/build/reports
 !/build/reports/dependency-graph
