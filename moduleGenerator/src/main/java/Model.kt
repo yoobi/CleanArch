@@ -2,8 +2,8 @@ import java.io.File
 
 internal enum class FeatureType(val string: String, val packageTree: String) {
     FEATURE("Feature", "features/feature-"),
-    COMMON("Common", "common"),
-    CORE("Core", "core"),
+    COMMON("Common", "common/"),
+    CORE("Core", "core/"),
 //    LIBRARY_ANDROID("Library (Android)"),
 //    LIBRARY_KOTLIN_ONLY("Library (Kotlin Only)"),
 }
