@@ -67,7 +67,9 @@ internal fun generateModuleRootFile(type: FeatureType, layer: FeatureLayer?, nam
 }
 
 internal fun generateModuleSrcFile(type: FeatureType, layer: FeatureLayer?, name:String): File {
-    val featureTypePath = type.packageTree.replace("-", "/")
+    val featureTypePath = type.packageTree
+        .replace("features/", "")
+        .replace("-", "/")
     val layerPath = "/${layer?.name?.lowercase()}"
     val fullPath = "${SRC_PATH}/$APPLICATION_ID_PATH/$featureTypePath/"
         .plus(name.lowercase().replace("-", "/"))
