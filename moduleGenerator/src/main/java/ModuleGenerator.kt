@@ -2,7 +2,6 @@ import java.io.File
 import java.nio.file.Files
 
 internal const val SRC_PATH = "src/main/java/"
-private const val APPLICATION_ID = "io.yoobi.poc.cleanarch"
 internal const val APPLICATION_ID_PATH = "io/yoobi/poc/cleanarch"
 
 lateinit var moduleRootFile: File
@@ -62,7 +61,8 @@ internal fun copyGradleFile(featureType: FeatureType, moduleRootFile: File): Fil
 
 internal fun generateModuleRootFile(type: FeatureType, layer: FeatureLayer?, name:String): File {
     val layerPath = "/${layer?.name?.lowercase()}"
-    val fullPath = "${type.packageTree}${name.lowercase()}".plus(if(layer != null) layerPath else "")
+    val fullPath = "${type.packageTree}${name.lowercase()}"
+        .plus(if(layer != null) layerPath else "")
     return File(fullPath).ifExistsThrow()
 }
 
