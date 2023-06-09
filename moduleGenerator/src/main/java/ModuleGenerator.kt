@@ -46,7 +46,7 @@ private fun generateFeatureFiles(type: FeatureType, layer: FeatureLayer, moduleN
     )
 //    File(moduleRootFile, "README.md").createFileAndLog()
     if(layer == FeatureLayer.UI) {
-        File(moduleSrcFile, "${moduleName}Fragment.kt").createFileAndLog()
+        File(moduleSrcFile, "${moduleName.replaceFirstChar { it.uppercase() }}Fragment.kt").createFileAndLog()
     }
 }
 
