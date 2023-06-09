@@ -15,8 +15,11 @@ internal enum class FeatureLayer {
     UI,
 }
 
-internal fun FeatureType.getTemplateGradleFile() = when(this) {
-    FeatureType.FEATURE -> File(".gradleTemplate/template-feature.gradle")
+internal fun FeatureType.getTemplateGradleFile(featureLayer: FeatureLayer? = null) = when(this) {
+    FeatureType.FEATURE -> {
+        if(featureLayer == FeatureLayer.UI) File(".gradleTemplate/template-feature-ui.gradle")
+        else File(".gradleTemplate/template-feature.gradle")
+    }
     FeatureType.CORE -> File(".gradleTemplate/template-core.gradle")
     FeatureType.COMMON -> TODO()
 //    FeatureType.LIBRARY_ANDROID -> TODO()

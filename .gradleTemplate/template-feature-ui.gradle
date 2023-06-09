@@ -1,0 +1,10 @@
+apply from: "$rootDir/android_feature_dependencies.gradle"
+
+android {
+    namespace "${AndroidConfig.applicationId}.features.{{featureName}}"
+}
+
+dependencies {
+    implementation projects.core.fragmentUi
+    implementation projects.core.network
+}

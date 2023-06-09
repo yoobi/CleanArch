@@ -38,7 +38,7 @@ private fun generateCoreFiles(type: FeatureType, moduleName: String) {
 }
 
 private fun generateFeatureFiles(type: FeatureType, layer: FeatureLayer, moduleName: String) {
-    copyGradleFile(type, moduleRootFile).log().replacePlaceholder(
+    copyGradleFile(type, moduleRootFile, layer).log().replacePlaceholder(
         mapOf(
             "{{featureName}}" to toGradleName(moduleName),
             "{{featureLayer}}" to layer.name.lowercase()
@@ -50,10 +50,10 @@ private fun generateFeatureFiles(type: FeatureType, layer: FeatureLayer, moduleN
     }
 }
 
-internal fun copyGradleFile(featureType: FeatureType, moduleRootFile: File): File {
+internal fun copyGradleFile(featureType: FeatureType, moduleRootFile: File, featureLayer: FeatureLayer? = null): File {
     val newBuildGradle = File(moduleRootFile, "build.gradle")
     Files.copy(
-        featureType.getTemplateGradleFile().toPath(),
+        featureType.getTemplateGradleFile(featureLayer).toPath(),
         newBuildGradle.toPath()
     )
     return newBuildGradle
