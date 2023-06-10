@@ -32,13 +32,13 @@ fun main() {
 }
 
 private fun generateCoreFiles(type: FeatureType, moduleName: String) {
-    copyGradleFile(type, moduleRootFile).log().replacePlaceholder(
+    copyGradleFile(type, moduleRootFile).log().addToGit().replacePlaceholder(
         mapOf("{{featureName}}" to toGradleName(moduleName))
     )
 }
 
 private fun generateFeatureFiles(type: FeatureType, layer: FeatureLayer, moduleName: String) {
-    copyGradleFile(type, moduleRootFile, layer).log().replacePlaceholder(
+    copyGradleFile(type, moduleRootFile, layer).log().addToGit().replacePlaceholder(
         mapOf(
             "{{featureName}}" to toGradleName(moduleName),
             "{{featureLayer}}" to layer.name.lowercase()
@@ -46,7 +46,8 @@ private fun generateFeatureFiles(type: FeatureType, layer: FeatureLayer, moduleN
     )
 //    File(moduleRootFile, "README.md").createFileAndLog()
     if(layer == FeatureLayer.UI) {
-        File(moduleSrcFile, "${moduleName.replaceFirstChar { it.uppercase() }}Fragment.kt").createFileAndLog()
+        File(moduleSrcFile, "${moduleName.replaceFirstChar { it.uppercase() }}Fragment.kt")
+            .createFileAndLog().addToGit()
     }
 }
 
