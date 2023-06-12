@@ -1,0 +1,15 @@
+plugins {
+    id 'com.android.library'
+}
+
+apply from: "$rootDir/android_base.gradle"
+
+android {
+    namespace 'io.yoobi.poc.cleanarch.core.view'
+}
+
+dependencies {
+    implementation Libraries.androidxConstraintLayout
+    implementation Libraries.glideAndroid
+
+}
