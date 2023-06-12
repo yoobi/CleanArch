@@ -1,6 +1,7 @@
 package io.yoobi.poc.cleanarch.feature.dashboard.ui
 
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.flowWithLifecycle
@@ -43,7 +44,10 @@ class DashboardFragment: BaseFragment<FragmentDashboardBinding>(FragmentDashboar
             viewModel.topRepository.flowWithLifecycle(viewLifecycleOwner.lifecycle).collect {
                 when(it.status) {
                     Resource.Status.SUCCESS -> repositoryAdapter.submitList(it.data)
-                    Resource.Status.ERROR -> Snackbar.make(view, "${it.error}", Snackbar.LENGTH_SHORT).show()
+                    Resource.Status.ERROR -> {
+                        Snackbar.make(view, "${it.error}", Snackbar.LENGTH_SHORT).show()
+                        Log.e("DashboardFragment", "${it.error}")
+                    }
                     Resource.Status.LOADING -> {}
                 }
             }

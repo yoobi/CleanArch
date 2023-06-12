@@ -5,11 +5,11 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
-import io.yoobi.poc.cleanarch.feature.dashboard.domain.model.User
+import io.yoobi.poc.cleanarch.feature.dashboard.domain.model.UserDomainModel
 import io.yoobi.poc.cleanarch.features.dashboard.ui.databinding.ItemUserBinding
 
 class UserAdapter(private val clickListener: UserClickListener)
-    : ListAdapter<User, UserAdapter.UserViewHolder>(UserDiffUtil) {
+    : ListAdapter<UserDomainModel, UserAdapter.UserViewHolder>(UserDiffUtil) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): UserViewHolder {
         return UserViewHolder.inflate(parent)
@@ -24,7 +24,7 @@ class UserAdapter(private val clickListener: UserClickListener)
 
     class UserViewHolder(private val binding: ItemUserBinding): RecyclerView.ViewHolder(binding.root) {
 
-        fun bind(item: User) {
+        fun bind(item: UserDomainModel) {
             binding.userName.text = item.name
         }
 
@@ -35,12 +35,12 @@ class UserAdapter(private val clickListener: UserClickListener)
         }
     }
 
-    object UserDiffUtil: DiffUtil.ItemCallback<User>() {
-        override fun areItemsTheSame(oldItem: User, newItem: User): Boolean {
+    object UserDiffUtil: DiffUtil.ItemCallback<UserDomainModel>() {
+        override fun areItemsTheSame(oldItem: UserDomainModel, newItem: UserDomainModel): Boolean {
             return oldItem.name == newItem.name
         }
 
-        override fun areContentsTheSame(oldItem: User, newItem: User): Boolean {
+        override fun areContentsTheSame(oldItem: UserDomainModel, newItem: UserDomainModel): Boolean {
             return oldItem == newItem
         }
     }

@@ -4,9 +4,10 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import dagger.hilt.android.lifecycle.HiltViewModel
 import io.yoobi.poc.cleanarch.core.network.Resource
-import io.yoobi.poc.cleanarch.feature.dashboard.domain.DashboardRepository
-import io.yoobi.poc.cleanarch.feature.dashboard.domain.model.Repository
-import io.yoobi.poc.cleanarch.feature.dashboard.domain.model.User
+import io.yoobi.poc.cleanarch.feature.dashboard.domain.model.UserDomainModel
+import io.yoobi.poc.cleanarch.feature.dashboard.domain.use_cases.DashboardUseCase
+import io.yoobi.poc.cleanarch.feature.dashboard.domain.use_cases.NewGithubUserUseCase
+import io.yoobi.poc.cleanarch.feature.repository.domain.model.model.RepositoryDomainModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
@@ -15,20 +16,20 @@ import javax.inject.Inject
 
 @HiltViewModel
 class DashboardViewModel @Inject constructor(
-    private val dashboardRepository: DashboardRepository
+    private val dashboardUseCase: DashboardUseCase,
+    private val newGithubUserUseCase: NewGithubUserUseCase
 ): ViewModel() {
 
-    private val _newestUser = MutableStateFlow<Resource<List<User>>>(Resource.loading(null))
+    private val _newestUser = MutableStateFlow<Resource<List<UserDomainModel>>>(Resource.loading(null))
     val newestUser = _newestUser.asStateFlow()
 
-    private val _topRepository = MutableStateFlow<Resource<List<Repository>>>(Resource.loading(null))
+    private val _topRepository = MutableStateFlow<Resource<List<RepositoryDomainModel>>>(Resource.loading(null))
     val topRepository = _topRepository.asStateFlow()
 
     init {
         viewModelScope.launch {
             runCatching {
-                val calendar = Calendar.getInstance()
-                dashboardRepository.getNewUserCreatedAt(calendar.toStringDate())
+                newGithubUserUseCase(Calendar.getInstance())
             }.fold(
                 onSuccess = {
                     _newestUser.value = Resource.success(it)
@@ -40,7 +41,7 @@ class DashboardViewModel @Inject constructor(
         }
         viewModelScope.launch {
             runCatching {
-                dashboardRepository.getTopAndroidRepository()
+                dashboardUseCase()
             }.fold(
                 onSuccess = {
                     _topRepository.value = Resource.success(it)
@@ -50,13 +51,6 @@ class DashboardViewModel @Inject constructor(
                 }
             )
         }
-    }
-
-    private fun Calendar.toStringDate(): String {
-        val year = get(Calendar.YEAR)
-        val month = (get(Calendar.MONTH)+1).toString().padStart(2, '0')
-        val day = get(Calendar.DAY_OF_MONTH).toString().padStart(2, '0')
-        return "$year-$month-$day"
     }
 
 }

@@ -6,6 +6,9 @@ android {
 
 dependencies {
     implementation projects.features.featureDashboard.domain
+    implementation projects.features.featureRepository.domain
+    implementation projects.common.view
+
     implementation projects.core.fragmentUi
     implementation projects.core.network
 

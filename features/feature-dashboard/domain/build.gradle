@@ -8,6 +8,8 @@ android {
 }
 
 dependencies {
+    implementation projects.features.featureRepository.domain
+
     implementation Libraries.hiltAndroid
     kapt Libraries.hiltCompiler
 }

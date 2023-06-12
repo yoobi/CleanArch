@@ -1,16 +1,14 @@
 package io.yoobi.poc.cleanarch.feature.dashboard.ui
 
-import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
-import com.bumptech.glide.Glide
-import io.yoobi.poc.cleanarch.feature.dashboard.domain.model.Repository
-import io.yoobi.poc.cleanarch.features.dashboard.ui.databinding.ItemRepositoryBinding
+import io.yoobi.poc.cleanarch.common.view.RepositoryCustomView
+import io.yoobi.poc.cleanarch.feature.repository.domain.model.model.RepositoryDomainModel
 
 class RepositoryAdapter(private val clickListener: RepositoryListener)
-    : ListAdapter<Repository, RepositoryAdapter.RepositoryViewHolder>(RepositoryDiffUtil) {
+    : ListAdapter<RepositoryDomainModel, RepositoryAdapter.RepositoryViewHolder>(RepositoryDiffUtil) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RepositoryViewHolder {
         return RepositoryViewHolder.inflate(parent)
@@ -20,35 +18,30 @@ class RepositoryAdapter(private val clickListener: RepositoryListener)
         getItem(position)?.let { repository ->
             holder.bind(repository)
             holder.itemView.setOnClickListener {
-                clickListener.onClick(repository.author.name, repository.name)
+                clickListener.onClick(repository.authorName, repository.name)
             }
         }
     }
 
-    class RepositoryViewHolder(private val binding: ItemRepositoryBinding): RecyclerView.ViewHolder(binding.root) {
+    class RepositoryViewHolder(private val view: RepositoryCustomView): RecyclerView.ViewHolder(view) {
 
-        fun bind(item: Repository) {
-            binding.repositoryName.text = item.name
-            binding.repositoryAuthor.text = item.author.name
-            binding.repositoryStars.text = "Stars: ${item.star}"
-            Glide.with(binding.repositoryImage)
-                .load(item.author.photo)
-                .into(binding.repositoryImage)
+        fun bind(item: RepositoryDomainModel) {
+            view.init(item.name, item.authorName, item.star, item.authorAvatar)
         }
 
         companion object {
             fun inflate(parent: ViewGroup) = RepositoryViewHolder(
-                ItemRepositoryBinding.inflate(LayoutInflater.from(parent.context))
+                RepositoryCustomView(parent.context)
             )
         }
     }
 
-    object RepositoryDiffUtil: DiffUtil.ItemCallback<Repository>() {
-        override fun areItemsTheSame(oldItem: Repository, newItem: Repository): Boolean {
+    object RepositoryDiffUtil: DiffUtil.ItemCallback<RepositoryDomainModel>() {
+        override fun areItemsTheSame(oldItem: RepositoryDomainModel, newItem: RepositoryDomainModel): Boolean {
             return oldItem.name == newItem.name
         }
 
-        override fun areContentsTheSame(oldItem: Repository, newItem: Repository): Boolean {
+        override fun areContentsTheSame(oldItem: RepositoryDomainModel, newItem: RepositoryDomainModel): Boolean {
             return oldItem == newItem
         }
     }
