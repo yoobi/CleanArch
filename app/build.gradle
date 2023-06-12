@@ -17,6 +17,8 @@ dependencies {
     implementation projects.features.featureDashboard.ui
     implementation projects.features.featureDashboard.data
 
+    implementation projects.features.featureRepository.data
+
     implementation Libraries.hiltAndroid
     kapt Libraries.hiltCompiler
 
