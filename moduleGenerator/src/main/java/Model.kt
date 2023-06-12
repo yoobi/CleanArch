@@ -21,7 +21,7 @@ internal fun FeatureType.getTemplateGradleFile(featureLayer: FeatureLayer? = nul
         else File(".gradleTemplate/template-feature.gradle")
     }
     FeatureType.CORE -> File(".gradleTemplate/template-core.gradle")
-    FeatureType.COMMON -> TODO()
+    FeatureType.COMMON -> File(".gradleTemplate/template-core.gradle")
 //    FeatureType.LIBRARY_ANDROID -> TODO()
 //    FeatureType.LIBRARY_KOTLIN_ONLY -> TODO()
 }
