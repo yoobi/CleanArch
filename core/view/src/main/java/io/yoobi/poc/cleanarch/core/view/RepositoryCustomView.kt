@@ -1,4 +1,4 @@
-package io.yoobi.poc.cleanarch.common.view
+package io.yoobi.poc.cleanarch.core.view
 
 import android.content.Context
 import android.util.AttributeSet

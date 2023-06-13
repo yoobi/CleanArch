@@ -1,0 +1,29 @@
+/**
+ * Feature UI dependencies
+ */
+apply plugin: 'com.android.library'
+apply plugin: 'com.google.dagger.hilt.android'
+apply plugin: 'kotlin-kapt'
+apply from: "$rootDir/android_base.gradle"
+
+dependencies {
+    // Module
+    implementation projects.appRes
+    implementation projects.core.view
+    implementation projects.core.fragmentUi
+    implementation projects.core.network
+
+    // Android
+    implementation Libraries.material
+    implementation Libraries.androidxCore
+    implementation Libraries.androidxAppCompat
+    implementation Libraries.androidxConstraintLayout
+    implementation Libraries.androidxRecyclerview
+    implementation Libraries.androidxFragment
+    implementation Libraries.androidxLifecycleViewModel
+    implementation Libraries.androidxLifecycleRuntime
+
+    // DI
+    implementation Libraries.hiltAndroid
+    kapt Libraries.hiltCompiler
+}

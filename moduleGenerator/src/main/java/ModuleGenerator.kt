@@ -25,7 +25,6 @@ fun main() {
             }
         }
         FeatureType.CORE -> generateCoreFiles(type, moduleName)
-        FeatureType.COMMON -> generateCoreFiles(type, moduleName)
     }
 
     println("Sync gradle to reload project modules :)")

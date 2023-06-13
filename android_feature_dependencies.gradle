@@ -7,16 +7,6 @@ apply plugin: 'kotlin-kapt'
 apply from: "$rootDir/android_base.gradle"
 
 dependencies {
-    // Android
-    implementation Libraries.material
-    implementation Libraries.androidxCore
-    implementation Libraries.androidxAppCompat
-    implementation Libraries.androidxConstraintLayout
-    implementation Libraries.androidxRecyclerview
-    implementation Libraries.androidxFragment
-    implementation Libraries.androidxLifecycleViewModel
-    implementation Libraries.androidxLifecycleRuntime
-
     // DI
     implementation Libraries.hiltAndroid
     kapt Libraries.hiltCompiler
