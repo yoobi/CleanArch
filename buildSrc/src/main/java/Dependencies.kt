@@ -22,7 +22,7 @@ object Versions {
     const val retrofitAdapter = "0.9.2"
     const val moshi = "1.14.0"
     const val room = "2.4.2"
-    const val material = "1.8.0"
+    const val material = "1.8.0-alpha03"
 
     const val androidxRecyclerview = "1.2.1"
     const val androidxCoreKtx = "1.10.0"

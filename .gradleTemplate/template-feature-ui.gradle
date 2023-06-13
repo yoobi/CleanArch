@@ -5,6 +5,7 @@ android {
 }
 
 dependencies {
+    implementation projects.appRes
     implementation projects.core.fragmentUi
     implementation projects.core.network
 }

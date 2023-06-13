@@ -5,6 +5,8 @@ android {
 }
 
 dependencies {
+    implementation projects.appRes
+
     implementation projects.features.featureDashboard.domain
     implementation projects.features.featureRepository.domain
     implementation projects.common.view
