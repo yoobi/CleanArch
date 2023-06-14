@@ -20,7 +20,7 @@ internal object Question {
         }
         println(typeStringBuilder.trimEnd().toString())
         val layer = readLine()?.toIntOrNull() ?: throw RuntimeException("Should be a number")
-        if(layer !in 1..FeatureType.values().size+1) {
+        if(layer !in 1..FeatureLayer.values().size+1) {
             throw RuntimeException("Should be between 1 and ${FeatureType.values().size+1}")
         }
         return FeatureLayer.values()[layer-1]

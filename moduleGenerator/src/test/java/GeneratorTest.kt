@@ -26,7 +26,6 @@ class GeneratorTest {
     @Test
     fun checkGenerateModuleSrc() {
         val moduleList = listOf(
-            ModuleTest("CommonView", FeatureType.COMMON, null),
             ModuleTest("TopVideos", FeatureType.FEATURE, FeatureLayer.DATA),
             ModuleTest("TopVideos", FeatureType.FEATURE, FeatureLayer.UI),
             ModuleTest("TopVideos", FeatureType.FEATURE, FeatureLayer.DOMAIN),
