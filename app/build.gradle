@@ -3,6 +3,7 @@ plugins {
     id 'kotlin-kapt'
     id 'com.google.dagger.hilt.android'
     id 'androidx.navigation.safeargs'
+    id 'com.jraska.module.graph.assertion'
 }
 apply from: "$rootDir/android_base.gradle"
 
@@ -17,6 +18,8 @@ dependencies {
     implementation projects.appRes
     implementation projects.features.featureDashboard.ui
     implementation projects.features.featureDashboard.data
+
+    implementation projects.core.fragmentUi
 
     implementation projects.features.featureSearch.ui
 //    implementation projects.features.featureSearch.data
@@ -37,4 +40,11 @@ dependencies {
     implementation Libraries.androidxAppCompat
     implementation Libraries.material
     implementation Libraries.androidxConstraintLayout
+}
+
+moduleGraphAssert {
+    maxHeight = 5
+    allowed = [":app -> :.*", ":features:.* -> :.*"]
+    restricted = [":.* -X> :app", ":app-res -X> :.*"]
+    assertOnAnyBuild = true
 }

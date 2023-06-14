@@ -1,6 +1,5 @@
 apply plugin: 'kotlin-android'
 apply plugin: 'org.jetbrains.kotlin.android'
-apply plugin: 'com.jraska.module.graph.assertion'
 
 android {
     compileSdkVersion AndroidConfig.compileSdk
