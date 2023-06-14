@@ -3,14 +3,11 @@ package io.yoobi.poc.cleanarch
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.NavController
-import androidx.navigation.findNavController
+import androidx.navigation.Navigation
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.NavigationUI
-import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
-import com.google.android.material.appbar.MaterialToolbar
-import com.google.android.material.bottomnavigation.BottomNavigationView
 import dagger.hilt.android.AndroidEntryPoint
 import io.yoobi.poc.cleanarch.databinding.ActivityMainBinding
 
@@ -27,12 +24,17 @@ class MainActivity : AppCompatActivity() {
             R.id.nav_host_fragment
         ) as NavHostFragment
         val navController: NavController = host.navController
-        // Passing each menu ID as a set of Ids because each
-        // menu should be considered as top level destinations.
+        binding.bottomNavView.setupWithNavController(navController)
+    }
+
+    override fun onSupportNavigateUp(): Boolean {
+        val navController = Navigation.findNavController(this, R.id.nav_host_fragment)
+        return NavigationUI.navigateUp(navController, appBarConfiguration) || super.onSupportNavigateUp()
+    }
+
+    companion object {
         val appBarConfiguration = AppBarConfiguration(setOf(
-            R.id.dashboardFragment,
+            R.id.dashboardFragment, R.id.searchFragment
         ))
-        val toolbar = findViewById<MaterialToolbar>(R.id.text_toolbar)
-        NavigationUI.setupWithNavController(toolbar, navController, appBarConfiguration)
     }
 }

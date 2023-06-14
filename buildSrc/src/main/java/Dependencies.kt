@@ -52,6 +52,8 @@ object Libraries {
     const val hiltAndroid = "com.google.dagger:hilt-android:${Versions.hilt}"
     const val hiltCompiler = "com.google.dagger:hilt-compiler:${Versions.hilt}"
 
+    const val javaxInject = "javax.inject:javax.inject:1"
+
     const val glideAndroid = "com.github.bumptech.glide:glide:4.15.1"
 
     const val retrofit = "com.squareup.retrofit2:retrofit:${Versions.retrofit}"
