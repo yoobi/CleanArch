@@ -1,4 +1,4 @@
-package io.yoobi.poc.cleanarch.navigation
+package io.yoobi.poc.cleanarch.di.impl.navigation
 
 import android.util.Log
 import androidx.navigation.NavController
