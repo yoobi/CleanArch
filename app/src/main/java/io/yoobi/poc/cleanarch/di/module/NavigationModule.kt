@@ -32,4 +32,6 @@ interface NavigationFragModule {
     @Binds
     fun bindsDashboardNavigation(impl: DashboardNavigationImpl): DashboardNavigation
 
+    @Binds
+    fun bindsSearchNavigation(impl: SearchNavigationImpl): SearchNavigation
 }

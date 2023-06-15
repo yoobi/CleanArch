@@ -5,8 +5,14 @@
     app:startDestination="@id/dashboardFragment">
 
     <fragment
-        android:id="@+id/dashboardFragment"
+        android:id="@id/dashboardFragment"
         android:name="io.yoobi.poc.cleanarch.feature.dashboard.ui.DashboardFragment"
+        android:label="Home" >
+    </fragment>
+
+    <fragment
+        android:id="@id/searchFragment"
+        android:name="io.yoobi.poc.cleanarch.feature.search.ui.SearchFragment"
         android:label="Home" >
     </fragment>
 

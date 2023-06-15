@@ -1,0 +1,10 @@
+apply from: "$rootDir/android_feature_ui.gradle"
+
+android {
+    namespace "${AndroidConfig.applicationId}.features.search.ui"
+}
+
+dependencies {
+    implementation projects.features.featureRepository.domain
+    implementation projects.features.featureRepository.ui
+}
