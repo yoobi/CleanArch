@@ -1,10 +1,9 @@
-package io.yoobi.poc.cleanarch.feature.dashboard.ui
+package io.yoobi.poc.cleanarch.feature.repository.ui
 
 import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
-import io.yoobi.poc.cleanarch.core.view.RepositoryCustomView
 import io.yoobi.poc.cleanarch.feature.repository.domain.model.model.RepositoryDomainModel
 
 class RepositoryAdapter(private val clickListener: RepositoryListener)

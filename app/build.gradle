@@ -22,7 +22,6 @@ dependencies {
     implementation projects.core.fragmentUi
 
     implementation projects.features.featureSearch.ui
-//    implementation projects.features.featureSearch.data
 
     implementation projects.features.featureRepository.data
 

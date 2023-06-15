@@ -1,12 +1,12 @@
-package io.yoobi.poc.cleanarch.core.view
+package io.yoobi.poc.cleanarch.feature.repository.ui
 
 import android.content.Context
 import android.util.AttributeSet
 import android.view.LayoutInflater
 import android.widget.LinearLayout
 import com.bumptech.glide.Glide
-import io.yoobi.poc.cleanarch.core.view.R
-import io.yoobi.poc.cleanarch.core.view.databinding.ItemRepositoryBinding
+import io.yoobi.poc.cleanarch.features.repository.R
+import io.yoobi.poc.cleanarch.features.repository.databinding.ItemRepositoryBinding
 
 class RepositoryCustomView: LinearLayout {
 
