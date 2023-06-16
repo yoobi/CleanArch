@@ -3,6 +3,7 @@ package io.yoobi.poc.cleanarch.di.impl.navigation
 import android.util.Log
 import androidx.navigation.NavController
 import dagger.hilt.android.scopes.FragmentScoped
+import io.yoobi.poc.cleanarch.feature.dashboard.ui.DashboardFragmentDirections
 import io.yoobi.poc.cleanarch.feature.dashboard.ui.DashboardNavigation
 import javax.inject.Inject
 
@@ -12,7 +13,9 @@ class DashboardNavigationImpl @Inject constructor(
 ): DashboardNavigation {
 
     override fun navigateToDetailsRepository(owner: String, name: String) {
-        Log.e("DashboardNav", "owner: $owner -- name: $name")
+        navController.navigate(
+            DashboardFragmentDirections.actionDashboardFragmentToRepoDetailsFragment(name, owner)
+        )
     }
 
     override fun navigateToDetailsUser(name: String) {

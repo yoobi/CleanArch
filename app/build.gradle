@@ -16,12 +16,16 @@ android {
 
 dependencies {
     implementation projects.appRes
+    implementation projects.core.fragmentUi
+
     implementation projects.features.featureDashboard.ui
     implementation projects.features.featureDashboard.data
 
     implementation projects.features.featureSearch.ui
 
     implementation projects.features.featureRepository.data
+
+    implementation projects.features.featureRepositoryDetails.ui
 
     implementation Libraries.hiltAndroid
     kapt Libraries.hiltCompiler
