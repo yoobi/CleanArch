@@ -7,6 +7,5 @@
     <com.google.android.material.appbar.MaterialToolbar
         android:id="@+id/text_toolbar"
         android:layout_width="match_parent"
-        android:layout_height="?attr/actionBarSize"
-        app:title="Hello World" />
+        android:layout_height="?attr/actionBarSize" />
 </com.google.android.material.appbar.AppBarLayout>

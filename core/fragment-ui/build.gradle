@@ -1,5 +1,7 @@
 apply plugin: 'com.android.library'
 apply from: "$rootDir/android_base.gradle"
+apply plugin: 'com.google.dagger.hilt.android'
+apply plugin: 'kotlin-kapt'
 
 android {
     namespace 'io.yoobi.poc.cleanarch.core.fragment.ui'
@@ -8,5 +10,7 @@ android {
 dependencies {
     implementation Libraries.androidxAppCompat
     implementation Libraries.material
-    implementation Libraries.javaxInject
+
+    implementation Libraries.hiltAndroid
+    kapt Libraries.hiltCompiler
 }

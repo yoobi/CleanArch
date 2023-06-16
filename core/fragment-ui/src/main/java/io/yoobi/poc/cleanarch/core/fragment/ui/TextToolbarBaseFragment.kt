@@ -11,8 +11,6 @@ import com.google.android.material.appbar.MaterialToolbar
 import io.yoobi.poc.cleanarch.core.fragment.ui.databinding.IncludeTextToolbarBinding
 import javax.inject.Inject
 
-//TODO: Fix issue !!!! Can't be used in more than one Fragment
-//TODO Probably because of @Inject
 abstract class TextToolbarBaseFragment<T: ViewBinding>(
     bindingInflater: (layoutInflater: LayoutInflater) -> T
 ): BaseFragment<T>(bindingInflater) {
