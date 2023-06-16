@@ -1,9 +1,9 @@
 plugins {
     id 'com.android.application'
-    id 'kotlin-kapt'
     id 'com.google.dagger.hilt.android'
     id 'androidx.navigation.safeargs'
     id 'com.jraska.module.graph.assertion'
+    id 'kotlin-kapt'
 }
 apply from: "$rootDir/android_base.gradle"
 
@@ -18,8 +18,6 @@ dependencies {
     implementation projects.appRes
     implementation projects.features.featureDashboard.ui
     implementation projects.features.featureDashboard.data
-
-    implementation projects.core.fragmentUi
 
     implementation projects.features.featureSearch.ui
 

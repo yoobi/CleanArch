@@ -1,7 +1,7 @@
 apply plugin: 'com.android.library'
+apply from: "$rootDir/android_base.gradle"
 apply plugin: 'com.google.dagger.hilt.android'
 apply plugin: 'kotlin-kapt'
-apply from: "$rootDir/android_base.gradle"
 
 android {
     namespace "${AndroidConfig.applicationId}.features.dashboard.domain"
