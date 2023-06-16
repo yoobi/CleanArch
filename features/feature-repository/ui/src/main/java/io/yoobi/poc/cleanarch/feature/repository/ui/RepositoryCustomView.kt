@@ -5,8 +5,8 @@ import android.util.AttributeSet
 import android.view.LayoutInflater
 import android.widget.LinearLayout
 import com.bumptech.glide.Glide
-import io.yoobi.poc.cleanarch.features.repository.R
-import io.yoobi.poc.cleanarch.features.repository.databinding.ItemRepositoryBinding
+import io.yoobi.poc.cleanarch.app.res.R as appRes
+import io.yoobi.poc.cleanarch.features.repository.ui.databinding.ItemRepositoryBinding
 
 class RepositoryCustomView: LinearLayout {
 
@@ -26,7 +26,7 @@ class RepositoryCustomView: LinearLayout {
     fun init(name: String, author: String, stars: Int, authorAvatar: String) {
         binding.repositoryName.text = name
         binding.repositoryAuthor.text = author
-        binding.repositoryStars.text = context.getString(R.string.item_repository_stars, stars)
+        binding.repositoryStars.text = context.getString(appRes.string.item_repository_stars, stars)
         Glide.with(binding.repositoryImage)
             .load(authorAvatar)
             .into(binding.repositoryImage)
