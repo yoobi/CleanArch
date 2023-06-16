@@ -11,8 +11,8 @@ fun main() {
     val type = Question.askFeatureType()
     val layer: FeatureLayer? = if(type == FeatureType.FEATURE) Question.askFeatureLayer() else null
     val moduleName = toModuleName(Question.askFeatureName())
-    moduleRootFile = generateModuleRootFile(type, layer, moduleName).createFolder()
-    moduleSrcFile = generateModuleSrcFile(type, layer, moduleName).createFolder()
+//    moduleRootFile = generateModuleRootFile(type, layer, moduleName).createFolder()
+//    moduleSrcFile = generateModuleSrcFile(type, layer, moduleName).createFolder()
 
 
     when(type) {
@@ -21,7 +21,9 @@ fun main() {
                 generateFeatureFiles(type, layer!!, moduleName)
             } else {
                 val layerToGenerate = FeatureLayer.values().toMutableList().apply { remove(FeatureLayer.ALL) }
-                layerToGenerate.forEach { generateFeatureFiles(type, it, moduleName) }
+                layerToGenerate.forEach {
+                    generateFeatureFiles(type, it, moduleName)
+                }
             }
         }
         FeatureType.CORE -> generateCoreFiles(type, moduleName)
@@ -30,13 +32,20 @@ fun main() {
     println("Sync gradle to reload project modules :)")
 }
 
+private fun baseGenerate(type: FeatureType, layer: FeatureLayer?, moduleName: String) {
+    moduleRootFile = generateModuleRootFile(type, layer, moduleName).createFolder()
+    moduleSrcFile = generateModuleSrcFile(type, layer, moduleName).createFolder()
+}
+
 private fun generateCoreFiles(type: FeatureType, moduleName: String) {
+    baseGenerate(type, null, moduleName)
     copyGradleFile(type, moduleRootFile).log().addToGit().replacePlaceholder(
         mapOf("{{featureName}}" to toGradleName(moduleName))
     )
 }
 
 private fun generateFeatureFiles(type: FeatureType, layer: FeatureLayer, moduleName: String) {
+    baseGenerate(type, layer, moduleName)
     copyGradleFile(type, moduleRootFile, layer).log().addToGit().replacePlaceholder(
         mapOf(
             "{{featureName}}" to toGradleName(moduleName),
@@ -45,8 +54,7 @@ private fun generateFeatureFiles(type: FeatureType, layer: FeatureLayer, moduleN
     )
 //    File(moduleRootFile, "README.md").createFileAndLog()
     if(layer == FeatureLayer.UI) {
-        File(moduleSrcFile, "${moduleName.replaceFirstChar { it.uppercase() }}Fragment.kt")
-            .createFileAndLog().addToGit()
+        File(moduleSrcFile, moduleName.toFragmentFileName()).createFileAndLog().addToGit()
     }
 }
 

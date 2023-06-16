@@ -11,6 +11,17 @@ class GeneratorTest {
         Assert.assertEquals(toModuleName(str), "common-view-with-module")
     }
 
+    @Test
+    fun toFragmentFileName() {
+        val list = mapOf(
+            "search" to "SearchFragment.kt",
+            "user-details" to "UserDetailsFragment.kt"
+        )
+        list.forEach { (key, value) ->
+            Assert.assertEquals(value, key.toFragmentFileName())
+        }
+    }
+
     private data class ModuleTest(
         val moduleName: String,
         val featureType: FeatureType,

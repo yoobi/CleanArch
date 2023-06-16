@@ -28,6 +28,11 @@ internal fun File.addToGit(): File {
     return this
 }
 
+internal fun String.toFragmentFileName(): String {
+    val transformed = replace("(\\-)([a-z])".toRegex()) { it.groupValues[2].uppercase() }
+    return transformed.replaceFirstChar { it.uppercase() }.plus("Fragment.kt")
+}
+
 internal fun String.addCharAtIndex(char: Char, index: Int) =
     StringBuilder(this).apply { insert(index, char) }.toString()
 
