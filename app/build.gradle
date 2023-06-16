@@ -63,10 +63,7 @@ moduleGraphAssert {
     assertOnAnyBuild = true
 }
 
-tasks.register("installGitHook", Copy) {
-    from(file("$rootDir/.githooks"))
-    into(file("$rootDir/.git/hooks"))
-    fileMode = 0775
+tasks.register("generateAppGraph") {
+    Process process = "./appGraph.sh".execute()
+    process.waitForProcessOutput(System.out, System.err)
 }
-
-tasks.getByPath(":app:preBuild").dependsOn(tasks.named("installGitHook"))
