@@ -1,11 +1,6 @@
 package io.yoobi.poc.cleanarch.feature.repository.details.ui
 
-import android.content.Context
-import android.content.Intent
-import android.net.Uri
 import android.os.Bundle
-import android.util.Log
-import android.util.Patterns
 import android.view.View
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.flowWithLifecycle
@@ -13,20 +8,16 @@ import androidx.lifecycle.lifecycleScope
 import com.bumptech.glide.Glide
 import com.google.android.material.snackbar.Snackbar
 import dagger.hilt.android.AndroidEntryPoint
-import io.yoobi.poc.cleanarch.core.fragment.ui.BaseFragment
 import io.yoobi.poc.cleanarch.core.fragment.ui.TextToolbarBaseFragment
 import io.yoobi.poc.cleanarch.core.network.Resource
 import io.yoobi.poc.cleanarch.feature.repository.domain.model.model.RepositoryDomainModel
-import io.yoobi.poc.cleanarch.features.repository.details.ui.R
 import io.yoobi.poc.cleanarch.features.repository.details.ui.databinding.FragmentRepositoryDetailsBinding
-import kotlinx.coroutines.flow.onEach
 import kotlinx.coroutines.launch
+import javax.inject.Inject
 import io.yoobi.poc.cleanarch.app.res.R as appRes
 
-import javax.inject.Inject
-
 @AndroidEntryPoint
-class RepositoryDetailsFragment: BaseFragment<FragmentRepositoryDetailsBinding>(
+class RepositoryDetailsFragment: TextToolbarBaseFragment<FragmentRepositoryDetailsBinding>(
     FragmentRepositoryDetailsBinding::inflate
 ) {
 

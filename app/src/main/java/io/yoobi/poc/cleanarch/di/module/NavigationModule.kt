@@ -10,12 +10,12 @@ import dagger.hilt.InstallIn
 import dagger.hilt.android.components.ActivityComponent
 import dagger.hilt.android.components.FragmentComponent
 import io.yoobi.poc.cleanarch.R
-import io.yoobi.poc.cleanarch.feature.dashboard.ui.DashboardNavigation
-import io.yoobi.poc.cleanarch.feature.search.ui.SearchNavigation
 import io.yoobi.poc.cleanarch.di.impl.navigation.DashboardNavigationImpl
 import io.yoobi.poc.cleanarch.di.impl.navigation.RepositoryDetailsNavigationImpl
 import io.yoobi.poc.cleanarch.di.impl.navigation.SearchNavigationImpl
+import io.yoobi.poc.cleanarch.feature.dashboard.ui.DashboardNavigation
 import io.yoobi.poc.cleanarch.feature.repository.details.ui.RepositoryDetailsNavigation
+import io.yoobi.poc.cleanarch.feature.search.ui.SearchNavigation
 
 @Module
 @InstallIn(ActivityComponent::class)

@@ -5,8 +5,8 @@ import android.util.AttributeSet
 import android.view.LayoutInflater
 import android.widget.LinearLayout
 import com.bumptech.glide.Glide
-import io.yoobi.poc.cleanarch.app.res.R as appRes
 import io.yoobi.poc.cleanarch.features.repository.ui.databinding.ItemRepositoryBinding
+import io.yoobi.poc.cleanarch.app.res.R as appRes
 
 class RepositoryCustomView: LinearLayout {
 
