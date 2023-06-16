@@ -12,6 +12,8 @@ abstract class BaseFragment<T: ViewBinding>(
     private val bindingInflater: (layoutInflater: LayoutInflater) -> T
 ): Fragment() {
 
+    val clsName: String = this.javaClass.simpleName
+
     private var _binding: T? = null
     val binding: T
         get() = _binding!!
@@ -22,7 +24,7 @@ abstract class BaseFragment<T: ViewBinding>(
         savedInstanceState: Bundle?
     ): View? {
         _binding = bindingInflater.invoke(inflater)
-        Log.e("BaseFragment", "$_binding")
+        Log.e(clsName, "_binding $_binding")
         return _binding?.root
     }
 
