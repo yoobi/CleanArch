@@ -47,18 +47,19 @@ moduleGraphAssert {
         ":app -> :.*",
         ":.* -> :app-res",
         ":features:.* -> :core:.*",
-        ":features:feature-[a-z]*:data -> :features:feature-[a-z]*:domain",
-        ":features:feature-[a-z]*:domain -> :features:feature-[a-z]*:domain",
-        ":features:feature-[a-z]*:ui -> :features:feature-[a-z]*:(domain|ui)",
-        ":features:feature-[a-z]*:ui -> :core:(fragment-ui|view)",
+        ":features:feature-.*:data -> :features:feature-.*:domain",
+        ":features:feature-.*:domain -> :features:feature-.*:domain",
+        ":features:feature-.*:ui -> :features:feature-.*:domain",
+        ":features:feature-.*:ui -> :features:feature-.*:ui",
+        ":features:feature-.*:ui -> :core:(fragment-ui|view)",
     ]
     restricted = [
         ":.* -X> :(app|moduleGenerator)",
         ":core:.* -X> :features:.*",
         ":app-res -X> :.*",
-        ":features:feature-[a-z]*:(data|domain) -X> :core:(fragment-ui|view)",
-        ":features:feature-[a-z]*:data -X> :features:feature-[a-z]*:(data|ui)",
-        ":features:feature-[a-z]*:domain -X> :features:feature-[a-z]*:(data|ui)",
+        ":features:feature-.*:(data|domain) -X> :core:(fragment-ui|view)",
+        ":features:feature-.*:data -X> :features:feature-.*:(data|ui)",
+        ":features:feature-.*:domain -X> :features:feature-.*:(data|ui)",
     ]
     assertOnAnyBuild = true
 }
