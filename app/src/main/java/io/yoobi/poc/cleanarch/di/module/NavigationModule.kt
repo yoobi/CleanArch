@@ -30,7 +30,7 @@ object NavControllerModule {
 
 @Module
 @InstallIn(FragmentComponent::class)
-interface NavigationFragModule {
+interface NavigationModule {
     @Binds
     fun bindsDashboardNavigation(impl: DashboardNavigationImpl): DashboardNavigation
 
