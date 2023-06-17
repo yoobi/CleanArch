@@ -1,11 +1,10 @@
-plugins {
-    id 'com.android.application'
-    id 'com.google.dagger.hilt.android'
-    id 'androidx.navigation.safeargs'
-    id 'com.jraska.module.graph.assertion'
-    id 'kotlin-kapt'
-}
+apply plugin: 'com.android.application'
 apply from: "$rootDir/android_base.gradle"
+apply plugin: 'com.google.dagger.hilt.android'
+apply plugin: 'androidx.navigation.safeargs'
+apply plugin: 'com.jraska.module.graph.assertion'
+apply plugin: 'kotlin-kapt'
+
 
 android {
     namespace AndroidConfig.applicationId
