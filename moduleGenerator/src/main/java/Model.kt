@@ -1,4 +1,5 @@
 import java.io.File
+import java.lang.IllegalArgumentException
 
 internal enum class FeatureType(val string: String, val packageTree: String) {
     FEATURE("Feature", "features/feature-"),
@@ -16,8 +17,12 @@ internal enum class FeatureLayer {
 
 internal fun FeatureType.getTemplateGradleFile(featureLayer: FeatureLayer? = null) = when(this) {
     FeatureType.FEATURE -> {
-        if(featureLayer == FeatureLayer.UI) File(".gradleTemplate/template-feature-ui.gradle")
-        else File(".gradleTemplate/template-feature.gradle")
+        when(featureLayer) {
+            FeatureLayer.DOMAIN -> File(".gradleTemplate/template-feature-domain.gradle")
+            FeatureLayer.DATA -> File(".gradleTemplate/template-feature-data.gradle")
+            FeatureLayer.UI -> File(".gradleTemplate/template-feature-ui.gradle")
+            else -> throw IllegalArgumentException()
+        }
     }
     FeatureType.CORE -> File(".gradleTemplate/template-core.gradle")
 //    FeatureType.LIBRARY_ANDROID -> TODO()
