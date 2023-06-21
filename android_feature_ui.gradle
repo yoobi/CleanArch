@@ -14,16 +14,16 @@ dependencies {
     implementation projects.core.network
 
     // Android
-    implementation Libraries.material
-    implementation Libraries.androidxCore
-    implementation Libraries.androidxAppCompat
-    implementation Libraries.androidxConstraintLayout
-    implementation Libraries.androidxRecyclerview
-    implementation Libraries.androidxFragment
-    implementation Libraries.androidxLifecycleViewModel
-    implementation Libraries.androidxLifecycleRuntime
+    implementation libs.material
+    implementation libs.androidxCore
+    implementation libs.androidxAppCompat
+    implementation libs.androidxConstraintLayout
+    implementation libs.androidxRecyclerview
+    implementation libs.androidxFragment
+    implementation libs.androidxLifecycleViewModel
+    implementation libs.androidxLifecycleRuntime
 
     // DI
-    implementation Libraries.hiltAndroid
-    kapt Libraries.hiltCompiler
+    implementation libs.hiltAndroid
+    kapt libs.hiltCompiler
 }

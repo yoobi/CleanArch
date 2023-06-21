@@ -2,11 +2,9 @@ apply plugin: 'com.android.library'
 apply from: "$rootDir/android_base.gradle"
 
 android {
-    namespace "${project.applicationId}.features.dashboard.domain"
+    namespace "${project.applicationId}.features.{{featureName}}.{{featureLayer}}"
 }
 
 dependencies {
-    implementation projects.features.featureRepository.domain
-
     implementation libs.hiltAndroid
 }

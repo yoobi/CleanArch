@@ -4,19 +4,19 @@ apply plugin: 'com.google.dagger.hilt.android'
 apply plugin: 'kotlin-kapt'
 
 android {
-    namespace "${AndroidConfig.applicationId}.features.repository.data"
+    namespace "${project.applicationId}.features.repository.data"
 }
 
 dependencies {
     implementation projects.features.featureRepository.domain
 
-    implementation Libraries.hiltAndroid
-    kapt Libraries.hiltCompiler
+    implementation libs.hiltAndroid
+    kapt libs.hiltCompiler
 
-    implementation Libraries.retrofit
+    implementation libs.retrofit
 
-    implementation Libraries.moshi
-    implementation Libraries.moshiKotlin
-    implementation Libraries.moshiKapt
-    kapt Libraries.moshiKapt
+    implementation libs.moshi
+    implementation libs.moshiKotlin
+    implementation libs.moshiKapt
+    kapt libs.moshiKapt
 }

@@ -8,9 +8,9 @@ android {
 }
 
 dependencies {
-    implementation Libraries.androidxAppCompat
-    implementation Libraries.material
+    implementation libs.androidxAppCompat
+    implementation libs.material
 
-    implementation Libraries.hiltAndroid
-    kapt Libraries.hiltCompiler
+    implementation libs.hiltAndroid
+    kapt libs.hiltCompiler
 }

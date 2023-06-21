@@ -1,15 +1,16 @@
-apply plugin: 'com.android.application'
+plugins {
+    alias libs.plugins.androidApplication
+    alias libs.plugins.hiltAndroid
+    alias libs.plugins.graphAssertion
+    alias libs.plugins.safeArgsKtx
+    alias libs.plugins.kotlinKapt
+}
 apply from: "$rootDir/android_base.gradle"
-apply plugin: 'com.google.dagger.hilt.android'
-apply plugin: 'androidx.navigation.safeargs'
-apply plugin: 'com.jraska.module.graph.assertion'
-apply plugin: 'kotlin-kapt'
-
 
 android {
-    namespace AndroidConfig.applicationId
+    namespace project.applicationId
     defaultConfig {
-        applicationId AndroidConfig.applicationId
+        applicationId project.applicationId
     }
 }
 
@@ -26,20 +27,20 @@ dependencies {
 
     implementation projects.features.featureRepositoryDetails.ui
 
-    implementation Libraries.hiltAndroid
-    kapt Libraries.hiltCompiler
+    implementation libs.hiltAndroid
+    kapt libs.hiltCompiler
 
-    implementation Libraries.androidxNavigation
-    implementation Libraries.androidxNavigationFragment
+    implementation libs.androidxNavigation
+    implementation libs.androidxNavigationFragment
 
-    implementation Libraries.retrofit
-    implementation Libraries.retrofitMoshi
-    implementation Libraries.retrofitAdapter
+    implementation libs.retrofit
+    implementation libs.retrofitMoshi
+    implementation libs.retrofitAdapter
 
-    implementation Libraries.androidxCore
-    implementation Libraries.androidxAppCompat
-    implementation Libraries.material
-    implementation Libraries.androidxConstraintLayout
+    implementation libs.androidxCore
+    implementation libs.androidxAppCompat
+    implementation libs.material
+    implementation libs.androidxConstraintLayout
 }
 
 moduleGraphAssert {

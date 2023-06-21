@@ -1,4 +1,3 @@
-enableFeaturePreview("TYPESAFE_PROJECT_ACCESSORS")
 pluginManagement {
     repositories {
         google()
@@ -14,24 +13,27 @@ dependencyResolutionManagement {
     }
 }
 
+enableFeaturePreview("TYPESAFE_PROJECT_ACCESSORS")
 rootProject.name = "CleanArch"
 
 includeModulesDir()
 
-fun findGradleModules(file: File): List<File> {
-    val mutableList = mutableListOf<File>()
-    file.walkTopDown().forEach {
+def findGradleModules(File file) {
+    ArrayList<File> mutableList = []
+    file.eachFileRecurse() {
         if (it.name == "build.gradle" && it.parentFile != rootDir) {
-            mutableList.add(File(it.parent.substringAfter(settingsDir.name, "")))
+            mutableList.add(new File(it.parent.substring(
+                it.parent.lastIndexOf(settingsDir.name) + settingsDir.name.size())
+            ))
         }
     }
     return mutableList
 }
 
-fun includeModulesDir() {
-    val foundModules = findGradleModules(rootDir)
-        .map { it.path.replace(File.separatorChar, ':') }
-        .sorted()
+def includeModulesDir() {
+    def foundModules = findGradleModules(rootDir)
+        .collect { it.path.replace(File.separatorChar.toString(), ":") }
+        .sort()
 
     println("foundModules: $foundModules")
     include(foundModules)

@@ -8,6 +8,6 @@ apply plugin: 'kotlin-kapt'
 
 dependencies {
     // DI
-    implementation Libraries.hiltAndroid
-    kapt Libraries.hiltCompiler
+    implementation libs.hiltAndroid
+    kapt libs.hiltCompiler
 }

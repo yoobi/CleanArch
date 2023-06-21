@@ -2,9 +2,9 @@ apply plugin: 'com.android.library'
 apply from: "$rootDir/android_base.gradle"
 
 android {
-    namespace "${AndroidConfig.applicationId}.app.res"
+    namespace "${project.applicationId}.app.res"
 }
 
 dependencies {
-    implementation Libraries.material
+    implementation libs.material
 }

@@ -1,0 +1,58 @@
+[versions]
+androidGradle = "8.0.0"
+kotlin = "1.8.10"
+hilt = "2.44.2"
+kotlinxCoroutines = "1.6.3"
+jraskaModuleGraphAssert = "2.4.0"
+
+okhttp = "4.10.0"
+retrofit = "2.9.0"
+retrofitAdapter = "0.9.2"
+moshi = "1.14.0"
+room = "2.4.2"
+material = "1.8.0-alpha03"
+glide = "4.15.1"
+
+androidxRecyclerview = "1.2.1"
+androidxCoreKtx = "1.10.0"
+androidxAppCompat = "1.6.1"
+androidxConstraintLayout = "2.1.4"
+androidxNavigation = "2.5.3"
+androidxCoreSplashscreen = "1.0.0"
+androidxFragmentKtx = "1.5.7"
+androidxLifecycleKtx = "2.6.1"
+
+[libraries]
+hiltAndroid = { module = "com.google.dagger:hilt-android", version.ref = "hilt" }
+hiltCompiler = { module = "com.google.dagger:hilt-compiler", version.ref = "hilt" }
+
+retrofit = { module = "com.squareup.retrofit2:retrofit", version.ref = "retrofit" }
+retrofitMoshi = { module = "com.squareup.retrofit2:converter-moshi", version.ref = "retrofit" }
+retrofitAdapter = { module = "com.jakewharton.retrofit:retrofit2-kotlin-coroutines-adapter", version.ref = "retrofitAdapter" }
+moshi = { module = "com.squareup.moshi:moshi", version.ref = "moshi" }
+moshiKotlin = { module = "com.squareup.moshi:moshi-kotlin", version.ref = "moshi" }
+moshiAdapters = { module = "com.squareup.moshi:moshi-adapters", version.ref = "moshi" }
+moshiKapt = { module = "com.squareup.moshi:moshi-kotlin-codegen", version.ref = "moshi" }
+material = { module = "com.google.android.material:material", version.ref = "material" }
+glideAndroid = { module = "com.github.bumptech.glide:glide", version.ref = "glide" }
+
+androidxAppCompat = { module = "androidx.appcompat:appcompat", version.ref = "androidxAppCompat" }
+androidxConstraintLayout = { module = "androidx.constraintlayout:constraintlayout", version.ref = "androidxConstraintLayout" }
+androidxRecyclerview = { module = "androidx.recyclerview:recyclerview", version.ref = "androidxRecyclerview" }
+androidxLifecycleViewModel = { module = "androidx.lifecycle:lifecycle-viewmodel-ktx", version.ref = "androidxLifecycleKtx" }
+androidxLifecycleRuntime = { module = "androidx.lifecycle:lifecycle-runtime-ktx", version.ref = "androidxLifecycleKtx" }
+androidxCore = { module = "androidx.core:core-ktx", version.ref = "androidxCoreKtx" }
+androidxFragment = { module = "androidx.fragment:fragment-ktx", version.ref = "androidxFragmentKtx" }
+androidxNavigation = { module = "androidx.navigation:navigation-ui-ktx", version.ref = "androidxNavigation" }
+androidxNavigationFragment = { module = "androidx.navigation:navigation-fragment-ktx", version.ref = "androidxNavigation" }
+
+[plugins]
+androidApplication = { id = "com.android.application", version.ref = "androidGradle" }
+androidLibrary = { id = "com.android.library", version.ref = "androidGradle" }
+kotlinAndroid = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
+kotlinKapt = { id = "org.jetbrains.kotlin.kapt", version.ref = "kotlin" }
+hiltAndroid = { id = "com.google.dagger.hilt.android", version.ref = "hilt" }
+safeArgsKtx = { id = "androidx.navigation.safeargs", version.ref = "androidxNavigation" }
+graphAssertion = { id = "com.jraska.module.graph.assertion", version.ref = "jraskaModuleGraphAssert" }
+
+#[bundles]

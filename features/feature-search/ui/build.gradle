@@ -1,7 +1,7 @@
 apply from: "$rootDir/android_feature_ui.gradle"
 
 android {
-    namespace "${AndroidConfig.applicationId}.features.search.ui"
+    namespace "${project.applicationId}.features.search.ui"
 }
 
 dependencies {
