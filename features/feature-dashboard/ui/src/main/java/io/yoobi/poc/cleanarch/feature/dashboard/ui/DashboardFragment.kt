@@ -9,6 +9,7 @@ import androidx.lifecycle.lifecycleScope
 import com.google.android.material.snackbar.Snackbar
 import dagger.hilt.android.AndroidEntryPoint
 import io.yoobi.poc.cleanarch.core.fragment.ui.BaseFragment
+import io.yoobi.poc.cleanarch.core.fragment.ui.IconToolbarBaseFragment
 import io.yoobi.poc.cleanarch.core.network.Resource
 import io.yoobi.poc.cleanarch.feature.repository.ui.RepositoryAdapter
 import io.yoobi.poc.cleanarch.features.dashboard.ui.databinding.FragmentDashboardBinding
@@ -16,12 +17,13 @@ import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @AndroidEntryPoint
-class DashboardFragment: BaseFragment<FragmentDashboardBinding>(FragmentDashboardBinding::inflate) {
+class DashboardFragment: IconToolbarBaseFragment<FragmentDashboardBinding>(FragmentDashboardBinding::inflate) {
     private val viewModel: DashboardViewModel by viewModels()
     @Inject lateinit var navigation: DashboardNavigation
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
         val userAdapter = UserAdapter(UserAdapter.UserClickListener { name ->
             navigation.navigateToDetailsUser(name)
         })

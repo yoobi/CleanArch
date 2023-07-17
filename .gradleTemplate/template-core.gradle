@@ -5,5 +5,5 @@ plugins {
 apply from: "$rootDir/android_base.gradle"
 
 android {
-    namespace 'io.yoobi.poc.cleanarch.core.{{featureName}}'
+    namespace "${project.applicationId}.core.{{featureName}}"
 }

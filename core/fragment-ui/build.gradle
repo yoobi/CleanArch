@@ -8,6 +8,8 @@ android {
 }
 
 dependencies {
+    implementation projects.appRes
+
     implementation libs.androidxAppCompat
     implementation libs.material
 
