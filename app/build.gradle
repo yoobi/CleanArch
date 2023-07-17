@@ -17,6 +17,7 @@ android {
 dependencies {
     implementation projects.appRes
     implementation projects.core.fragmentUi
+    implementation projects.core.network
 
     implementation projects.features.featureDashboard.ui
     implementation projects.features.featureDashboard.data
