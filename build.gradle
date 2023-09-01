@@ -12,7 +12,7 @@ plugins {
 ext {
     applicationId = "io.yoobi.poc.cleanarch"
     minSdk = 22
-    compileSdk = 33
+    compileSdk = 34
     versionCode = 1
     versionName = "1.0"
 }
