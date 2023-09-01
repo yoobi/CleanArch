@@ -11,6 +11,9 @@
         <action
             android:id="@+id/action_dashboardFragment_to_repoDetailsFragment"
             app:destination="@id/repoDetailsFragment" />
+        <action
+            android:id="@+id/action_dashboardFragment_to_userDetailsFragment"
+            app:destination="@id/userDetailsFragment" />
     </fragment>
 
     <fragment
@@ -33,5 +36,15 @@
             android:name="author_name"
             app:argType="string" />
     </fragment>
+
+    <fragment
+        android:id="@+id/userDetailsFragment"
+        android:name="io.yoobi.poc.cleanarch.feature.user.details.ui.UserDetailsFragment"
+        android:label="UserDetailsFragment">
+        <argument
+            android:name="user_name"
+            app:argType="string" />
+    </fragment>
+
 
 </navigation>

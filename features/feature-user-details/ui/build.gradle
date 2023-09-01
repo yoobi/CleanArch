@@ -1,0 +1,10 @@
+apply from: "$rootDir/android_feature_ui.gradle"
+
+android {
+    namespace "${project.applicationId}.features.repository.details.ui"
+}
+
+dependencies {
+    implementation projects.features.featureRepository.domain
+    implementation libs.glideAndroid
+}

@@ -13,9 +13,11 @@ import io.yoobi.poc.cleanarch.R
 import io.yoobi.poc.cleanarch.di.impl.navigation.DashboardNavigationImpl
 import io.yoobi.poc.cleanarch.di.impl.navigation.RepositoryDetailsNavigationImpl
 import io.yoobi.poc.cleanarch.di.impl.navigation.SearchNavigationImpl
+import io.yoobi.poc.cleanarch.di.impl.navigation.UserDetailsNavigationImpl
 import io.yoobi.poc.cleanarch.feature.dashboard.ui.DashboardNavigation
 import io.yoobi.poc.cleanarch.feature.repository.details.ui.RepositoryDetailsNavigation
 import io.yoobi.poc.cleanarch.feature.search.ui.SearchNavigation
+import io.yoobi.poc.cleanarch.feature.user.details.ui.UserDetailsNavigation
 
 @Module
 @InstallIn(ActivityComponent::class)
@@ -39,4 +41,7 @@ interface NavigationModule {
 
     @Binds
     fun bindsRepositoryDetailsNavigation(impl: RepositoryDetailsNavigationImpl): RepositoryDetailsNavigation
+
+    @Binds
+    fun bindsUserDetailsNavigation(impl: UserDetailsNavigationImpl): UserDetailsNavigation
 }

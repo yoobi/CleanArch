@@ -28,6 +28,8 @@ dependencies {
 
     implementation projects.features.featureRepositoryDetails.ui
 
+    implementation projects.features.featureUserDetails.ui
+
     implementation libs.hiltAndroid
     kapt libs.hiltCompiler
 

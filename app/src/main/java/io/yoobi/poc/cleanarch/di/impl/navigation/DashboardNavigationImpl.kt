@@ -19,7 +19,9 @@ class DashboardNavigationImpl @Inject constructor(
     }
 
     override fun navigateToDetailsUser(name: String) {
-        Log.e("DashboardNav", "navController: $navController -- name: $name")
+        navController.navigate(
+            DashboardFragmentDirections.actionDashboardFragmentToUserDetailsFragment(name)
+        )
     }
 
 }
