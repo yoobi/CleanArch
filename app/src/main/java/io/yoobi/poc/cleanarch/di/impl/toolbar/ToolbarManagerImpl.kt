@@ -12,9 +12,7 @@ import javax.inject.Inject
 class ToolbarManagerImpl @Inject constructor(
     private val navController: NavController
 ): ToolbarManager {
-
     override fun setupWithController(toolbar: MaterialToolbar) {
         toolbar.setupWithNavController(navController, MainActivity.appBarConfiguration)
     }
-
 }

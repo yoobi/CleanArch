@@ -1,6 +1,5 @@
 package io.yoobi.poc.cleanarch.di.impl.navigation
 
-import android.util.Log
 import androidx.navigation.NavController
 import dagger.hilt.android.scopes.FragmentScoped
 import io.yoobi.poc.cleanarch.feature.dashboard.ui.DashboardFragmentDirections

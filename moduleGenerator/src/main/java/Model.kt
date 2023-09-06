@@ -1,5 +1,4 @@
 import java.io.File
-import java.lang.IllegalArgumentException
 
 internal enum class FeatureType(val string: String, val packageTree: String) {
     FEATURE("Feature", "features/feature-"),

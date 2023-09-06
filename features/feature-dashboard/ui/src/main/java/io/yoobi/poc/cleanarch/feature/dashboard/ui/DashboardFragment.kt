@@ -9,7 +9,6 @@ import androidx.lifecycle.flowWithLifecycle
 import androidx.lifecycle.lifecycleScope
 import com.google.android.material.snackbar.Snackbar
 import dagger.hilt.android.AndroidEntryPoint
-import io.yoobi.poc.cleanarch.core.fragment.ui.BaseFragment
 import io.yoobi.poc.cleanarch.core.fragment.ui.IconToolbarBaseFragment
 import io.yoobi.poc.cleanarch.core.network.Resource
 import io.yoobi.poc.cleanarch.feature.dashboard.domain.exception.ExampleDashboardException
