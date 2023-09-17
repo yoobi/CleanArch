@@ -2,7 +2,7 @@ package io.yoobi.poc.cleanarch.feature.repository.data
 
 import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass
-import io.yoobi.poc.cleanarch.feature.repository.data.model.RepositoryNetworkModel
+import io.yoobi.poc.cleanarch.feature.repository.data.model.RepositoryRemoteModel
 import retrofit2.http.GET
 import retrofit2.http.Path
 import retrofit2.http.Query
@@ -20,12 +20,12 @@ internal interface GithubRepositorySearchService {
         @Query("q", encoded = true) query: String,
         @Query("sort") sort: String = "stars",
         @Query("order") order: String = "desc"
-    ): ApiListResult<RepositoryNetworkModel>
+    ): ApiListResult<RepositoryRemoteModel>
 
     @GET("repos/{author}/{name}")
     suspend fun getRepository(
         @Path("author") author: String,
         @Path("name") name: String
-    ): RepositoryNetworkModel
+    ): RepositoryRemoteModel
 
 }

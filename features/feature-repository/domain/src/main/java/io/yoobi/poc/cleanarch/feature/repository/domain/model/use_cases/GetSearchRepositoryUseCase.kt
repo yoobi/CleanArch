@@ -4,7 +4,7 @@ import io.yoobi.poc.cleanarch.feature.repository.domain.model.RepositoryReposito
 import io.yoobi.poc.cleanarch.feature.repository.domain.model.model.RepositoryDomainModel
 import javax.inject.Inject
 
-class SearchRepositoryUseCase @Inject constructor(
+class GetSearchRepositoryUseCase @Inject constructor(
     private val repository: RepositoryRepository
 ) {
     suspend operator fun invoke(query: String): List<RepositoryDomainModel> =

@@ -4,7 +4,7 @@ import io.yoobi.poc.cleanarch.feature.repository.domain.model.RepositoryReposito
 import io.yoobi.poc.cleanarch.feature.repository.domain.model.model.RepositoryDomainModel
 import javax.inject.Inject
 
-class TopAndroidRepositoryUseCase @Inject constructor(
+class GetTopAndroidRepositoryUseCase @Inject constructor(
     private val repository: RepositoryRepository
 ) {
 

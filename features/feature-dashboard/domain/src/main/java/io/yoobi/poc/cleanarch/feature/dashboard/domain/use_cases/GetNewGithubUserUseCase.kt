@@ -5,7 +5,7 @@ import io.yoobi.poc.cleanarch.feature.dashboard.domain.model.UserDomainModel
 import java.util.Calendar
 import javax.inject.Inject
 
-class NewGithubUserUseCase @Inject constructor(
+class GetNewGithubUserUseCase @Inject constructor(
     private val dashboardRepository: DashboardRepository
 ) {
     suspend operator fun invoke(date: Calendar): List<UserDomainModel> =

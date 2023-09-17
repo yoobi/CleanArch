@@ -2,7 +2,7 @@ package io.yoobi.poc.cleanarch.feature.dashboard.data
 
 import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass
-import io.yoobi.poc.cleanarch.feature.dashboard.data.model.NetworkUser
+import io.yoobi.poc.cleanarch.feature.dashboard.data.model.UserRemoteModel
 import retrofit2.http.GET
 import retrofit2.http.Query
 
@@ -16,7 +16,7 @@ internal data class ApiResult<T>(
 internal interface GithubUserSearchService {
 
     @GET("search/users")
-    suspend fun getUserBy(@Query("q") query: String): ApiResult<NetworkUser>
+    suspend fun getUserBy(@Query("q") query: String): ApiResult<UserRemoteModel>
 
 }
 

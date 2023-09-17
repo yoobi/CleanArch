@@ -5,8 +5,8 @@ import androidx.lifecycle.viewModelScope
 import dagger.hilt.android.lifecycle.HiltViewModel
 import io.yoobi.poc.cleanarch.core.network.Resource
 import io.yoobi.poc.cleanarch.feature.dashboard.domain.model.UserDomainModel
-import io.yoobi.poc.cleanarch.feature.dashboard.domain.use_cases.DashboardUseCase
-import io.yoobi.poc.cleanarch.feature.dashboard.domain.use_cases.NewGithubUserUseCase
+import io.yoobi.poc.cleanarch.feature.dashboard.domain.use_cases.GetDashboardUseCase
+import io.yoobi.poc.cleanarch.feature.dashboard.domain.use_cases.GetNewGithubUserUseCase
 import io.yoobi.poc.cleanarch.feature.repository.domain.model.model.RepositoryDomainModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
@@ -16,8 +16,8 @@ import javax.inject.Inject
 
 @HiltViewModel
 class DashboardViewModel @Inject constructor(
-    private val dashboardUseCase: DashboardUseCase,
-    private val newGithubUserUseCase: NewGithubUserUseCase
+    private val getDashboardUseCase: GetDashboardUseCase,
+    private val getNewGithubUserUseCase: GetNewGithubUserUseCase
 ): ViewModel() {
 
     private val _newestUser = MutableStateFlow<Resource<List<UserDomainModel>>>(Resource.loading(null))
@@ -29,7 +29,7 @@ class DashboardViewModel @Inject constructor(
     init {
         viewModelScope.launch {
             runCatching {
-                newGithubUserUseCase(Calendar.getInstance())
+                getNewGithubUserUseCase(Calendar.getInstance())
             }.fold(
                 onSuccess = {
                     _newestUser.value = Resource.success(it)
@@ -41,7 +41,7 @@ class DashboardViewModel @Inject constructor(
         }
         viewModelScope.launch {
             runCatching {
-                dashboardUseCase()
+                getDashboardUseCase()
             }.fold(
                 onSuccess = {
                     _topRepository.value = Resource.success(it)
