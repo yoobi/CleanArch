@@ -45,7 +45,7 @@ class UserAdapter(private val clickListener: UserClickListener)
         }
     }
 
-    class UserClickListener(private val click: (name: String) -> Unit) {
-        fun onClick(name: String) = click(name)
+    fun interface UserClickListener {
+        fun onClick(name: String)
     }
 }

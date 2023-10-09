@@ -31,12 +31,10 @@ class DashboardFragment: IconToolbarBaseFragment<FragmentDashboardBinding>(Fragm
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val userAdapter = UserAdapter(UserAdapter.UserClickListener { name ->
-            navigation.navigateToDetailsUser(name)
-        })
-        val repositoryAdapter = RepositoryAdapter(RepositoryAdapter.RepositoryListener { owner, name ->
+        val userAdapter = UserAdapter { name -> navigation.navigateToDetailsUser(name) }
+        val repositoryAdapter = RepositoryAdapter { owner, name ->
             navigation.navigateToDetailsRepository(owner, name)
-        })
+        }
         binding.rvUser.adapter = userAdapter
         binding.rvRepo.adapter = repositoryAdapter
 

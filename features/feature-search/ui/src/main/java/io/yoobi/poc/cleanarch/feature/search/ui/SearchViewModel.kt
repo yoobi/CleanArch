@@ -16,16 +16,16 @@ class SearchViewModel @Inject constructor(
     private val getSearchRepositoryUseCase: GetSearchRepositoryUseCase
 ): ViewModel() {
 
-    private val _repositories = MutableStateFlow<Resource<List<RepositoryDomainModel>>>(Resource.loading(null))
+    private val _repositories = MutableStateFlow(Resource.loading<List<RepositoryDomainModel>>(null))
     val repositories = _repositories.asStateFlow()
 
     fun search(query: String) {
         viewModelScope.launch {
-            runCatching {
+            _repositories.value = runCatching {
                 getSearchRepositoryUseCase.invoke(query)
             }.fold(
-                onSuccess = { _repositories.value = Resource.success(it) },
-                onFailure = { _repositories.value = Resource.error(it, null) }
+                onSuccess = { Resource.success(it) },
+                onFailure = { Resource.error(it, null) }
             )
         }
     }

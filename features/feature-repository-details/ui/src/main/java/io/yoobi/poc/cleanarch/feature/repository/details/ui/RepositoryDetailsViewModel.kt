@@ -16,18 +16,16 @@ class RepositoryDetailsViewModel @Inject constructor(
     private val getRepositoryByNameUseCase: GetRepositoryByNameUseCase
 ): ViewModel() {
 
-    private val _repository = MutableStateFlow<Resource<RepositoryDomainModel>>(
-        Resource.loading(null)
-    )
+    private val _repository = MutableStateFlow(Resource.loading<RepositoryDomainModel>(null))
     val repository = _repository.asStateFlow()
 
     fun load(args: RepositoryDetailsArgs) {
         viewModelScope.launch {
-            runCatching {
+            _repository.value = runCatching {
                 getRepositoryByNameUseCase.invoke(args.owner, args.repo)
             }.fold(
-                onSuccess = { _repository.value = Resource.success(it) },
-                onFailure = { _repository.value = Resource.error(it, null) }
+                onSuccess = { Resource.success(it) },
+                onFailure = { Resource.error(it, null) }
             )
         }
     }

@@ -29,9 +29,9 @@ class SearchFragment: TextToolbarBaseFragment<FragmentSearchBinding>(FragmentSea
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         setHasOptionsMenu(true)
-        val repositoryAdapter = RepositoryAdapter(RepositoryAdapter.RepositoryListener { owner, name ->
+        val repositoryAdapter = RepositoryAdapter { owner, name ->
             searchNavigation.navigateToDetails(owner, name)
-        })
+        }
         binding.rv.adapter = repositoryAdapter
         binding.searchview.setOnQueryTextListener(object: SearchView.OnQueryTextListener {
             override fun onQueryTextSubmit(query: String?): Boolean {

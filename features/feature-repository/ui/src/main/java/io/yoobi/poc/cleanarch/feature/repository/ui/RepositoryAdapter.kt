@@ -45,7 +45,7 @@ class RepositoryAdapter(private val clickListener: RepositoryListener)
         }
     }
 
-    class RepositoryListener(val click: (owner: String, name: String) -> Unit) {
-        fun onClick(owner: String, name: String) = click(owner, name)
+    fun interface RepositoryListener {
+        fun onClick(owner: String, name: String)
     }
 }

@@ -28,27 +28,19 @@ class DashboardViewModel @Inject constructor(
 
     init {
         viewModelScope.launch {
-            runCatching {
+            _newestUser.value = runCatching {
                 getNewGithubUserUseCase(Calendar.getInstance())
             }.fold(
-                onSuccess = {
-                    _newestUser.value = Resource.success(it)
-                },
-                onFailure = {
-                    _newestUser.value = Resource.error(it, null)
-                }
+                onSuccess = { Resource.success(it) },
+                onFailure = { Resource.error(it, null) }
             )
         }
         viewModelScope.launch {
-            runCatching {
+            _topRepository.value = runCatching {
                 getDashboardUseCase()
             }.fold(
-                onSuccess = {
-                    _topRepository.value = Resource.success(it)
-                },
-                onFailure = {
-                    _topRepository.value = Resource.error(it, null)
-                }
+                onSuccess = { Resource.success(it) },
+                onFailure = { Resource.error(it, null) }
             )
         }
     }
