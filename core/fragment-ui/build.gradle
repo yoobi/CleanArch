@@ -4,7 +4,7 @@ apply plugin: 'com.google.dagger.hilt.android'
 apply plugin: 'kotlin-kapt'
 
 android {
-    namespace 'io.yoobi.poc.cleanarch.core.fragment.ui'
+    namespace "${project.applicationId}.core.fragment.ui"
 }
 
 dependencies {
