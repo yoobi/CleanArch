@@ -2,5 +2,5 @@ apply plugin: 'com.android.library'
 apply from: "$rootDir/android_base.gradle"
 
 android {
-    namespace 'io.yoobi.poc.cleanarch.core.network'
+    namespace "${project.applicationId}.core.network"
 }

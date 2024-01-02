@@ -2,7 +2,7 @@ apply plugin: 'com.android.library'
 apply from: "$rootDir/android_base.gradle"
 
 android {
-    namespace 'io.yoobi.poc.cleanarch.core.view'
+    namespace "${project.applicationId}.core.view"
 }
 
 dependencies {
