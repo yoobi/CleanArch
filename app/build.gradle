@@ -44,6 +44,8 @@ dependencies {
     implementation libs.androidxAppCompat
     implementation libs.material
     implementation libs.androidxConstraintLayout
+
+    debugImplementation libs.leakCanary
 }
 
 moduleGraphAssert {
